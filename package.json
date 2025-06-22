@@ -1,0 +1,33 @@
+{
+     "name": "wynn-kit",
+     "description": "A Tailwind CSS plugin for Wynncraft, providing utility classes and components to enhance the Wynncraft experience.",
+     "version": "1.2.1",
+     "license": "Custom-License",
+     "author": "Bryan López Chavarría <bryan3108lopez@gmail.com> (https://github.com/bryanlch)",
+     "main": "dist/index.js",
+     "module": "dist/index.mjs",
+     "types": "dist/index.d.ts",
+     "files": [
+          "dist"
+     ],
+     "scripts": {
+          "dev": "tsup src/index.ts --watch --dts",
+          "build": "tsup src/index.ts --dts",
+          "prepublishOnly": "npm run build"
+     },
+     "peerDependencies": {
+          "tailwindcss": "^4.0.0"
+     },
+     "devDependencies": {
+          "@semantic-release/git": "^10.0.1",
+          "@semantic-release/npm": "^12.0.1",
+          "@types/react": "^18.2.0",
+          "@types/react-dom": "^18.2.0",
+          "autoprefixer": "^10.4.0",
+          "postcss": "^8.4.0",
+          "semantic-release": "^24.2.5",
+          "tailwindcss": "^4.0.0",
+          "tsup": "^7.2.0",
+          "typescript": "^5.6.0"
+     }
+}

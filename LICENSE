@@ -1,0 +1,28 @@
+The Wynn Kit License
+
+Copyright © 2025 Bryan López Chavarría (@bryanlch)
+
+Permission is hereby granted to use, copy, and distribute this software ("wynn-kit")
+for any purpose, provided the following conditions are met:
+
+1. **Attribution**:  
+   You must give clear credit to the original author in one of the following ways:
+
+   - A visible mention in your project's `README` or documentation:  
+     _"Uses Wynn Kit (https://github.com/wynn-kit/kit) © 2025"_
+   - A comment in the source code where used:  
+     _// UI components from Wynn Kit (https://github.com/wynn-kit/kit)_
+
+2. **No Warranty**:  
+   This software is provided "as is", without warranties of any kind.
+
+3. **Freedom to Fork/Modify**:  
+   You may create derivative works, but derivative packages must:
+   - Not use the names "Wynn Kit" or "wynn-kit" without permission.
+   - Still credit the original project prominently.
+
+For custom licensing, commercial redistribution, or modification requests, please contact:
+
+**Bryan López Chavarría**  
+**GitHub:** [@bryanlch](https://github.com/bryanlch)  
+**Email:** bryan3108lopez@gmail.com

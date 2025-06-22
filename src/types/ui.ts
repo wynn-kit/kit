@@ -1,0 +1,22 @@
+// Paleta de colores predefinidos para UI
+export const schemeColors = [
+  "primary",
+  "secondary",
+  "accent",
+  "danger",
+  "success",
+  "warning",
+  "white",
+  "black",
+] as const;
+export type SchemeColor = (typeof schemeColors)[number];
+
+// Variantes de estilo
+export type Variant = "filled" | "outline" | "flushed" | "blur";
+
+// Tamaños estándar
+export type Size = "sm" | "md" | "lg";
+
+export const radiusValues = ["none", "sm", "md", "lg", "xl", "2xl", "full"] as const;
+
+export type Radius = (typeof radiusValues)[number];
