@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BaseInputProps } from "./constant-inputs";
-import { X0707CheckboxSingle } from "./x0707checkbox-single";
+import { BaseInputProps } from "./X3108-wynn-kit-constant";
+import { X3108chk } from "./X3108-wynn-kit-chk";
 
 interface CheckboxOption {
   value: string;
@@ -15,7 +15,7 @@ interface X0707CheckboxGroupProps extends Omit<BaseInputProps, 'value' | 'onChan
   multiSelect?: boolean;
 }
 
-export const X0707CheckboxMultiple = React.forwardRef<HTMLDivElement, X0707CheckboxGroupProps>(
+export const X3108chkm = React.forwardRef<HTMLDivElement, X0707CheckboxGroupProps>(
   ({
     name,
     label,
@@ -79,7 +79,7 @@ export const X0707CheckboxMultiple = React.forwardRef<HTMLDivElement, X0707Check
 
         <div className={containerClasses}>
           {options.map(option => (
-            <X0707CheckboxSingle
+            <X3108chk
               key={option.value}
               name={name}
               option={option}
@@ -101,4 +101,4 @@ export const X0707CheckboxMultiple = React.forwardRef<HTMLDivElement, X0707Check
   }
 );
 
-X0707CheckboxMultiple.displayName = "CheckBoxMultiUI";
+X3108chkm.displayName = "CheckBoxMultiUI";

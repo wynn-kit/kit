@@ -1,13 +1,13 @@
-import { Btn310899 as ButtonUI } from "./buttons/Btn310899";
-import { X312Input as InputUI } from "./inputs/X312Input";
-import { xasreFloatingsSelect as SelectUI } from "./inputs/xasreFloatingsSelect";
-import { X312FileInput as FileUI } from "./inputs/X312FileInput";
-import { X0707CheckboxSingle as CheckBoxUI } from "./inputs/x0707checkbox-single";
-import { X0707CheckboxMultiple as CheckBoxMultiUI } from "./inputs/x0707checkbox-multi";
-import { X0707ToggleButton as ToggleUI } from "./inputs/X0707ToggleButton";
-import { x2706TTtipUI as ToolTipUI } from "./tooltip/x2706TTtipUI";
-import { X0707MergeClasses as clsx } from "./copile/ClsxCopile";
-import { X0707Loading as LoadingIcon } from "./icon/x0707Loading";
+import { X3108MergeClasses as clsx } from "./copile/X3108-wynn-kit-copile";
+import { X3108btn as ButtonUI } from "./buttons/X3108-wynn-kit-btn";
+import { X3108inp as InputUI } from "./inputs/X3108-wynn-kit-inp";
+import { X3108sel as SelectUI } from "./inputs/X3108-wynn-kit-sel";
+import { X3108fup as FileUI } from "./inputs/X3108-wynn-kit-fup";
+import { X3108chk as CheckBoxUI } from "./inputs/X3108-wynn-kit-chk";
+import { X3108chkm as CheckBoxMultiUI } from "./inputs/X3108-wynn-kit-chkm";
+import { X3108tgl as ToggleUI } from "./inputs/X3108-wynn-kit-tgl";
+import { X3108tip as ToolTipUI } from "./tooltip/X3108-wynn-kit-tip";
+import { X3108autos as AutoCompleteUI } from "./inputs/X3108-wynn-kit-autos";
 
 export {
   ButtonUI,
@@ -18,6 +18,6 @@ export {
   CheckBoxUI,
   CheckBoxMultiUI,
   ToolTipUI,
-  LoadingIcon,
+  AutoCompleteUI,
   clsx,
 };

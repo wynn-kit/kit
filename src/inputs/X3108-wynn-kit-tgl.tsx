@@ -1,7 +1,7 @@
 import React from "react";
-import { BaseInputProps, inputBgColorClasses, inputColorClasses, inputVariantClasses, labelSizeClasses, toggleColorClasses, toggleSizecircleClasses, toggleSizeClasses, } from "./constant-inputs";
+import { BaseInputProps, inputBgColorClasses, inputColorClasses, inputVariantClasses, labelSizeClasses, toggleColorClasses, toggleSizecircleClasses, toggleSizeClasses, } from "./X3108-wynn-kit-constant";
 import { Size } from "../types/ui";
-import { X0707MergeClasses } from "../copile/ClsxCopile";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
 interface X0707ToggleButtonProps extends Omit<BaseInputProps, "onChange"> {
      value?: boolean;
@@ -14,7 +14,7 @@ const toggleTranslateClasses: Record<Size, string> = {
      lg: "translate-x-[2rem]",
 };
 
-export const X0707ToggleButton = ({
+export const X3108tgl = ({
      name,
      label,
      value = false,
@@ -26,7 +26,7 @@ export const X0707ToggleButton = ({
      error = "",
 }: X0707ToggleButtonProps) => {
 
-     const classContenedor = X0707MergeClasses(
+     const classContenedor = X3108MergeClasses(
           toggleSizeClasses[size],
           inputVariantClasses[variant],
           inputBgColorClasses[schemaColor],
@@ -34,7 +34,7 @@ export const X0707ToggleButton = ({
           disabled ? "opacity-50 cursor-not-allowed" : ""
      );
 
-     const classCircle = X0707MergeClasses(
+     const classCircle = X3108MergeClasses(
           toggleSizecircleClasses[size],
           toggleColorClasses[schemaColor],
           "rounded-full absolute transition-all duration-300 ease-in-out",
@@ -74,4 +74,4 @@ export const X0707ToggleButton = ({
 }
 
 
-X0707ToggleButton.displayName = "ToggleUI";
+X3108tgl.displayName = "ToggleUI";

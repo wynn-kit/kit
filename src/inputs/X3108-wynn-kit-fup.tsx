@@ -7,8 +7,8 @@ import {
   inputBgColorClasses,
   labelSizeClasses,
   BaseInputProps,
-} from "./constant-inputs";
-import { X0707MergeClasses } from "../copile/ClsxCopile";
+} from "./X3108-wynn-kit-constant";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
 interface X312FileInputProps extends BaseInputProps {
   description?: string[];
@@ -25,7 +25,7 @@ interface X312FileInputProps extends BaseInputProps {
   height?: number;
 }
 
-export const X312FileInput = ({
+export const X3108fup = ({
   name,
   label,
   variant = "outline",
@@ -118,7 +118,7 @@ export const X312FileInput = ({
 
   const hasError = !!(touched && (error || internalError));
 
-  const ClassesInput = X0707MergeClasses(
+  const ClassesInput = X3108MergeClasses(
     inputBaseClassesStandard,
     inputSizeClasses[size],
     inputVariantClasses[variant],
@@ -165,3 +165,5 @@ export const X312FileInput = ({
     </div>
   );
 };
+
+X3108fup.displayName = "FileInputUI";

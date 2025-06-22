@@ -8,8 +8,8 @@ import {
   inputBgColorClasses,
   inputBaseClassesStandard,
   BaseInputProps,
-} from "./constant-inputs";
-import { X0707MergeClasses } from "../copile/ClsxCopile";
+} from "./X3108-wynn-kit-constant";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
 interface OptionType {
   value: string;
@@ -25,7 +25,7 @@ interface SelectInputProps extends BaseInputProps {
 }
 
 
-export const xasreFloatingsSelect = React.forwardRef<HTMLSelectElement, SelectInputProps>((props, ref) => {
+export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((props, ref) => {
   const {
     id,
     name,
@@ -54,7 +54,7 @@ export const xasreFloatingsSelect = React.forwardRef<HTMLSelectElement, SelectIn
     setInfo?.(name!);
   }
 
-  const classesSelectBase = X0707MergeClasses(
+  const classesSelectBase = X3108MergeClasses(
     "w-full appearance-none",
     floatingLabel ? inputBaseClasses : inputBaseClassesStandard,
     inputSizeClasses[size],
@@ -63,7 +63,7 @@ export const xasreFloatingsSelect = React.forwardRef<HTMLSelectElement, SelectIn
     hasError ? "border-danger focus:ring-danger/30" : "border-gray-300 focus:border-primary focus:ring-primary/30",
     floatingLabel ? "pr-10" : ""
   );
-  const classesLabel = X0707MergeClasses(
+  const classesLabel = X3108MergeClasses(
     "absolute left-3 px-1 transition-all pointer-events-none",
     value || isFocused ? "" : labelSizeClassesSelect[size],
     inputColorClasses[schemaColor]
@@ -119,4 +119,4 @@ export const xasreFloatingsSelect = React.forwardRef<HTMLSelectElement, SelectIn
   );
 });
 
-xasreFloatingsSelect.displayName = "SelectUi";
+X3108sel.displayName = "SelectUi";

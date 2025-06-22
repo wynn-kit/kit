@@ -1,21 +1,36 @@
 import { useState, useEffect, useRef } from "react";
-import { InputStandardProps } from "../../../utils/util.interface";
+import { X3108inp } from "./X3108-wynn-kit-inp";
+import { BaseInputProps } from "./X3108-wynn-kit-constant";
 
-export const SearchInput = ({
-  title,
+interface ListDropdown {
+  name: string;
+  [key: string]: any;
+}
+
+interface X3108autosProps extends BaseInputProps {
+  name: string;
+  value?: string;
+  data: ListDropdown[];
+  className?: string;
+  setFetchInput?: (query: string) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+}
+
+export const X3108autos = ({
+  label,
   name,
   placeholder,
   value = "",
   error = "",
   touched = false,
   disabled = false,
-  isViewError = true,
+  showError = true,
+  data = [],
   setFetchInput,
   onChange,
-  // listAuto,
-
-  data = [],
-}: InputStandardProps) => {
+  onBlur,
+}: X3108autosProps) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<any[]>([]);
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -72,12 +87,8 @@ export const SearchInput = ({
   }, []);
 
   return (
-    <div ref={inputRef} className="w-full mt-1 mb-2 col-span-2">
-      <div className="pr-1">
-        <label className="text-[#000000] font-medium text-md">{title}</label>
-      </div>
-      <input
-        id={name}
+    <div ref={inputRef} className="w-full my-2">
+      <X3108inp
         name={name}
         type="text"
         placeholder={placeholder}
@@ -88,6 +99,7 @@ export const SearchInput = ({
         autoComplete="off"
         disabled={disabled}
         onFocus={() => setDropdownVisible(true)}
+        onBlur={onBlur}
       />
       {dropdownVisible && results.length > 0 && (
         <ul className="absolute bg-white border border-slate-400 w-1/4 z-10">
@@ -102,7 +114,7 @@ export const SearchInput = ({
           ))}
         </ul>
       )}
-      {isViewError && (
+      {showError && (
         <div className="min-h-7 max-h-9 flex justify-end items-center mt-1">
           {touched && (
             <p className="text-red-400 text-sm font-mediun leading-5">{error}</p>
@@ -112,3 +124,4 @@ export const SearchInput = ({
     </div>
   );
 };
+X3108autos.displayName = "AutoCompleteUI";

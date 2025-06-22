@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
-import { BaseInputProps, checkboxSizeClasses, inputBaseClassesStandard, inputBgColorClasses, inputVariantClasses, labelSizeClasses } from "./constant-inputs";
-import { X0707MergeClasses } from "../copile/ClsxCopile";
+import { BaseInputProps, checkboxSizeClasses, inputBaseClassesStandard, inputBgColorClasses, inputVariantClasses, labelSizeClasses } from "./X3108-wynn-kit-constant";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
 interface X0707CheckboxSingleProps extends Omit<BaseInputProps, 'onChange'> {
      option: { value: string | number; label: string };
@@ -9,7 +9,7 @@ interface X0707CheckboxSingleProps extends Omit<BaseInputProps, 'onChange'> {
      type?: "checkbox" | "radio";
 }
 
-export const X0707CheckboxSingle = React.forwardRef<HTMLInputElement, X0707CheckboxSingleProps>(
+export const X3108chk = React.forwardRef<HTMLInputElement, X0707CheckboxSingleProps>(
      ({
           name,
           option,
@@ -25,7 +25,7 @@ export const X0707CheckboxSingle = React.forwardRef<HTMLInputElement, X0707Check
 
           const hasError = !!error;
 
-          const ClassesInputBase = X0707MergeClasses(
+          const ClassesInputBase = X3108MergeClasses(
                "appearance-none rounded-md border py-1.5 px-3 font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2",
                inputBaseClassesStandard,
                labelSizeClasses[size],
@@ -59,4 +59,4 @@ export const X0707CheckboxSingle = React.forwardRef<HTMLInputElement, X0707Check
      }
 );
 
-X0707CheckboxSingle.displayName = "CheckBoxUI";
+X3108chk.displayName = "CheckBoxUI";

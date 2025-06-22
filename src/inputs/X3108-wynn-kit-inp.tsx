@@ -9,9 +9,9 @@ import {
   inputBgColorClasses,
   labelTraslateYClasses,
   BaseInputProps,
-} from "./constant-inputs";
-import { X0707EyeClose, X0707EyeOpen } from "../icon/X0707Eyes";
-import { X0707MergeClasses } from "../copile/ClsxCopile";
+} from "./X3108-wynn-kit-constant";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
+import { X3108EyeClose, X3108EyeOpen } from "../icon/X3108-wynn-kit-icon";
 
 type InputValidation = {
   pattern?: RegExp;
@@ -21,7 +21,7 @@ type InputValidation = {
   customValidator?: (value: string) => string | null;
 };
 
-interface InputX312Props extends BaseInputProps {
+interface X3108inpProps extends BaseInputProps {
   name: string;
   value?: string | number;
   type?: "text" | "password" | "email" | "number" | "tel" | "date";
@@ -29,10 +29,12 @@ interface InputX312Props extends BaseInputProps {
   className?: string;
   validation?: InputValidation;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-
-const X312Input = React.forwardRef<HTMLInputElement, InputX312Props>(
+const X3108inp = React.forwardRef<HTMLInputElement, X3108inpProps>(
   (
     {
       name,
@@ -45,16 +47,19 @@ const X312Input = React.forwardRef<HTMLInputElement, InputX312Props>(
       error: externalError,
       showError = true,
       disabled = false,
-      onChange,
-      onBlur,
+      autoComplete = "off",
       required = false,
       schemaColor = "primary",
       placeholder,
       floatingLabel = false,
+      onClick,
+      onChange,
+      onBlur,
+      onFocus,
     },
     ref
   ) => {
-    const [isFocused, setIsFocused] = useState(false);
+    const [isFocused, _setIsFocused] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [internalError, setInternalError] = useState("");
 
@@ -89,8 +94,15 @@ const X312Input = React.forwardRef<HTMLInputElement, InputX312Props>(
       onChange(e);
     };
 
+    const setIsFocused = (e: React.FocusEvent<HTMLInputElement>) => {
+      _setIsFocused(true);
+      if (onFocus) {
+        onFocus?.(e);
+      }
+    };
+
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      setIsFocused(false);
+      _setIsFocused(false);
       if (validation) validateInput(e.target.value);
       onBlur?.(e);
     };
@@ -98,7 +110,7 @@ const X312Input = React.forwardRef<HTMLInputElement, InputX312Props>(
     const error = externalError || internalError;
     const hasError = !!error;
 
-    const ClassesInputBase = X0707MergeClasses(
+    const ClassesInputBase = X3108MergeClasses(
       inputSizeClasses[size],
       inputVariantClasses[variant],
       inputBgColorClasses[schemaColor],
@@ -124,8 +136,10 @@ const X312Input = React.forwardRef<HTMLInputElement, InputX312Props>(
           value={value}
           placeholder={!floatingLabel ? placeholder || label : ""}
           onChange={handleChange}
-          onFocus={() => setIsFocused(true)}
+          onFocus={setIsFocused}
           onBlur={handleBlur}
+          onClick={onClick}
+          autoComplete={autoComplete}
           disabled={disabled}
           className={ClassesInputBase}
           aria-invalid={hasError}
@@ -140,9 +154,9 @@ const X312Input = React.forwardRef<HTMLInputElement, InputX312Props>(
             aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
           >
             {showPassword ? (
-              <X0707EyeOpen size={size} color={schemaColor} />
+              <X3108EyeOpen size={size} color={schemaColor} />
             ) : (
-              <X0707EyeClose size={size} color={schemaColor} />
+              <X3108EyeClose size={size} color={schemaColor} />
             )}
           </button>
         )}
@@ -172,6 +186,6 @@ const X312Input = React.forwardRef<HTMLInputElement, InputX312Props>(
   }
 );
 
-X312Input.displayName = "InputUI";
+X3108inp.displayName = "InputUI";
 
-export { X312Input };
+export { X3108inp };

@@ -1,15 +1,15 @@
 
-import { X0707MergeClasses } from "../copile/ClsxCopile";
-import { X0707Loading } from "../icon/x0707Loading";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
+import { X3108Loading } from "../icon/X3108-wynn-kit-icon";
 import {
   ButtonProps,
   sizeClasses,
   variantColorClasses,
   commonClasses,
   radiusClasses
-} from "./Btn310899-types";
+} from "./X3108-wynn-kit-types";
 
-const Btn310899 = ({
+const X3108btn = ({
   children,
   disabled = false,
   type = "button",
@@ -30,7 +30,7 @@ const Btn310899 = ({
   const focusRingClass = `focus:ring-${schemaColor}-300`;
   const radiusClass = radiusClasses[radius];
 
-  const allClasses = X0707MergeClasses(
+  const allClasses = X3108MergeClasses(
     commonClasses,
     variantClass,
     sizeClass,
@@ -50,7 +50,7 @@ const Btn310899 = ({
         aria-busy={loading}
       >
         <div className="flex items-center justify-center">
-          <span className={X0707MergeClasses(
+          <span className={X3108MergeClasses(
             "transition-opacity duration-200 ease-in-out",
             loading ? "opacity-0 invisible" : "opacity-100 visible"
           )}>
@@ -60,7 +60,7 @@ const Btn310899 = ({
           </span>
           {loading && (
             <span className="absolute animate-[--animate-fade-in-scale]">
-              <X0707Loading />
+              <X3108Loading size={size} />
             </span>
           )}
         </div>
@@ -70,4 +70,6 @@ const Btn310899 = ({
   );
 };
 
-export { Btn310899 };
+X3108btn.displayName = "ButtonUI";
+
+export { X3108btn };

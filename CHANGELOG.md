@@ -2,6 +2,11 @@
 
 All significant changes to this package will be documented here.
 
+## [1.2.1] - 2025-06-21
+
+- Added new component is autoComplete
+- manage interace
+
 ## [1.2.0] - 2025-06-16
 
 - Refactored the `Tooltip` component by removing the `framer-motion` dependency and replacing animations with Tailwind CSS transitions (`transition`, `scale`, `opacity`, etc.).

@@ -1,15 +1,15 @@
-import { iconColorClass, iconSizeClass } from "../inputs/constant-inputs";
-import { X0707MergeClasses } from "../copile/ClsxCopile";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
+import { iconColorClass, iconSizeClass } from "../inputs/X3108-wynn-kit-constant";
 import { SchemeColor, Size } from "../types/ui";
 
 export interface PropsIcon {
   size: Size;
-  color: SchemeColor;
+  color?: SchemeColor;
 }
 
 export const getIconClasses = ({ size, color }: PropsIcon) =>
-  X0707MergeClasses(
+  X3108MergeClasses(
     "rounded-lg px-1.5 py-1 transition-all duration-200",
     iconSizeClass[size],
-    iconColorClass[color]
+    color ? iconColorClass[color] : ""
   );

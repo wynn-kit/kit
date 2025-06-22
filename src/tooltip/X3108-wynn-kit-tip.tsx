@@ -1,8 +1,8 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { PositionToolTip, TooltipUIProps, variantColorClasses } from "./constant-tooltip";
-import { X0707MergeClasses } from "../copile/ClsxCopile";
+import { PositionToolTip, TooltipUIProps, variantColorClasses } from "./X3108-wynn-kit-tip-constant";
+import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
-export const x2706TTtipUI = ({
+export const X3108tip = ({
      isShowing = true,
      message,
      children,
@@ -64,7 +64,7 @@ export const x2706TTtipUI = ({
           }
      }, [visible, offset, _position]);
 
-     const classesBased = X0707MergeClasses(
+     const classesBased = X3108MergeClasses(
           "fixed z-50 px-3 py-1.5 text-sm rounded shadow-md pointer-events-none whitespace-nowrap transition-all duration-200 ease-out transform",
           animationState ? "scale-100 group-hover:scale-100 group-hover:opacity-100 transition-transform0" : "opacity-0 scale-90",
           variantColorClasses[variant][schemeColor],
@@ -101,3 +101,5 @@ export const x2706TTtipUI = ({
           </div>
      );
 };
+
+X3108tip.displayName = "ToolTipUI";
