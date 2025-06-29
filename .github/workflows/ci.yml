@@ -5,10 +5,25 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm ci
-      - run: npm test
+          cache: 'npm' # También permite cache automático desde setup-node v3+
+
+      - name: Use npm ci if lockfile exists, else fallback to install
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "⚠️ Warning: package-lock.json not found. Falling back to 'npm install'."
+            npm install
+          fi
+
+      - name: Run tests
+        run: npm test
