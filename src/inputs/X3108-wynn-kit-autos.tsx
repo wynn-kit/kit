@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { X3108inp } from "./X3108-wynn-kit-inp";
-import { BaseInputProps } from "./X3108-wynn-kit-constant";
+import { X3108BaseInpProps } from "./X3108-wynn-kit-constant";
 
 interface ListDropdown {
   name: string;
   [key: string]: any;
 }
 
-interface X3108autosProps extends BaseInputProps {
+interface X3108autosProps extends X3108BaseInpProps {
   name: string;
   value?: string;
   data: ListDropdown[];

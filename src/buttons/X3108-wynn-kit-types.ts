@@ -26,16 +26,6 @@ export const sizeClasses: Record<Size, string> = {
   lg: "px-8 py-3 text-lg",
 };
 
-export const radiusClasses: Record<Radius, string> = {
-  none: "rounded-none",
-  sm: "rounded-sm",
-  md: "rounded-md",
-  lg: "rounded-lg",
-  xl: "rounded-xl",
-  "2xl": "rounded-2xl",
-  full: "rounded-full",
-};
-
 // Clases de color y variante
 export const variantColorClasses: Record<Variant, Record<SchemeColor, string>> = {
   filled: {
@@ -52,9 +42,9 @@ export const variantColorClasses: Record<Variant, Record<SchemeColor, string>> =
     warning:
       "bg-warning border-4 border-warning hover:border-warning/75 hover:bg-warning/75 text-white",
     white:
-      "bg-white border-4 border-white hover:border-white/75 hover:bg-white/75 text-black",
+      "bg-white text-black border-4 border-white hover:border-white/75 hover:bg-white/75",
     black:
-      "bg-black border-4 border-black hover:border-black/75 hover:bg-black/75 text-white",
+      "bg-black text-white border-4 border-black hover:border-black/75 hover:bg-black/75",
   },
   outline: {
     primary: "border-4 border-primary text-primary hover:bg-primary hover:text-white",
@@ -98,8 +88,8 @@ export const variantColorClasses: Record<Variant, Record<SchemeColor, string>> =
       "bg-success/15 backdrop-blur-xl text-success hover:bg-success/65 hover:text-white",
     warning:
       "bg-warning/15 backdrop-blur-xl text-warning hover:bg-warning/65 hover:text-white",
-    white: "bg-white/25 backdrop-blur-xl text-black hover:bg-white/65 hover:text-black",
-    black: "bg-black/25 backdrop-blur-xl text-white hover:bg-black/65 hover:text-white",
+    white: "bg-white/25 backdrop-blur-xl text-black hover:bg-white/65",
+    black: "bg-black/25 backdrop-blur-xl text-white hover:bg-black/65",
   },
 };
 

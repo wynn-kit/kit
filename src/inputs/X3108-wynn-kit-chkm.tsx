@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BaseInputProps } from "./X3108-wynn-kit-constant";
+import { X3108BaseInpProps } from "./X3108-wynn-kit-constant";
 import { X3108chk } from "./X3108-wynn-kit-chk";
 
 interface CheckboxOption {
@@ -7,7 +7,7 @@ interface CheckboxOption {
   label: string;
 }
 
-interface X0707CheckboxGroupProps extends Omit<BaseInputProps, 'value' | 'onChange'> {
+interface X0707CheckboxGroupProps extends Omit<X3108BaseInpProps, 'value' | 'onChange'> {
   options: CheckboxOption[];
   value?: string | string[];
   onChange?: (values: string | string[]) => void;

@@ -7,7 +7,7 @@ import {
   labelSizeClassesSelect,
   inputBgColorClasses,
   inputBaseClassesStandard,
-  BaseInputProps,
+  X3108BaseInpProps,
 } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
@@ -16,7 +16,7 @@ interface OptionType {
   label: string;
 }
 
-interface SelectInputProps extends BaseInputProps {
+interface SelectInputProps extends X3108BaseInpProps {
   id: string;
   options: OptionType[];
   value?: string;

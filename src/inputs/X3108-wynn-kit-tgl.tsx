@@ -1,9 +1,9 @@
 import React from "react";
-import { BaseInputProps, inputBgColorClasses, inputColorClasses, inputVariantClasses, labelSizeClasses, toggleColorClasses, toggleSizecircleClasses, toggleSizeClasses, } from "./X3108-wynn-kit-constant";
+import { X3108BaseInpProps, inputBgColorClasses, inputColorClasses, inputVariantClasses, labelSizeClasses, toggleColorClasses, toggleSizecircleClasses, toggleSizeClasses, } from "./X3108-wynn-kit-constant";
 import { Size } from "../types/ui";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
-interface X0707ToggleButtonProps extends Omit<BaseInputProps, "onChange"> {
+interface X0707ToggleButtonProps extends Omit<X3108BaseInpProps, "onChange"> {
      value?: boolean;
      onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

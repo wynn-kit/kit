@@ -2,6 +2,13 @@
 
 All significant changes to this package will be documented here.
 
+## [0.0.2] - 2025-06-29
+
+### Fixed
+
+- **button:** fix styles when schemaColor is 'white' or 'black'.
+- **input:** multiple visual and behavioral improvements.
+
 ## [1.2.1] - 2025-06-21
 
 - Added new component is autoComplete

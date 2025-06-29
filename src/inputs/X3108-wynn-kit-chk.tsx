@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from "react";
-import { BaseInputProps, checkboxSizeClasses, inputBaseClassesStandard, inputBgColorClasses, inputVariantClasses, labelSizeClasses } from "./X3108-wynn-kit-constant";
+import { X3108BaseInpProps, checkboxSizeClasses, inputBaseClassesStandard, inputBgColorClasses, inputVariantClasses, labelSizeClasses } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
-interface X0707CheckboxSingleProps extends Omit<BaseInputProps, 'onChange'> {
+interface X0707CheckboxSingleProps extends Omit<X3108BaseInpProps, 'onChange'> {
      option: { value: string | number; label: string };
      checked?: boolean;
      onChange?: (value: string | number, checked: boolean) => void;

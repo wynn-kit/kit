@@ -9,7 +9,7 @@ export interface PropsIcon {
 
 export const getIconClasses = ({ size, color }: PropsIcon) =>
   X3108MergeClasses(
-    "rounded-lg px-1.5 py-1 transition-all duration-200",
+    "rounded-lg px-1.5 py-1",
     iconSizeClass[size],
     color ? iconColorClass[color] : ""
   );

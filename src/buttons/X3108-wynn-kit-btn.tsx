@@ -1,12 +1,12 @@
 
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 import { X3108Loading } from "../icon/X3108-wynn-kit-icon";
+import { radiusClasses } from "../types/ui";
 import {
   ButtonProps,
   sizeClasses,
   variantColorClasses,
   commonClasses,
-  radiusClasses
 } from "./X3108-wynn-kit-types";
 
 const X3108btn = ({
