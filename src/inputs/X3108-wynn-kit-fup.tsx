@@ -6,11 +6,11 @@ import {
   inputColorClasses,
   inputBgColorClasses,
   labelSizeClasses,
-  BaseInputProps,
+  X3108BaseInpProps,
 } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
-interface X312FileInputProps extends BaseInputProps {
+interface X312FileInputProps extends X3108BaseInpProps {
   description?: string[];
   fileWeightMB?: number;
   formats?: string[];

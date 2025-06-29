@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import {
   inputSizeClasses,
-  inputVariantClasses,
   inputBaseClasses,
   labelSizeClasses,
   inputColorClasses,
   inputBaseClassesStandard,
-  inputBgColorClasses,
   labelTraslateYClasses,
-  BaseInputProps,
+  X3108BaseInpProps,
+  variantColorClassesInput,
 } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 import { X3108EyeClose, X3108EyeOpen } from "../icon/X3108-wynn-kit-icon";
+import { radiusClasses } from "../types/ui";
 
 type InputValidation = {
   pattern?: RegExp;
@@ -21,7 +21,7 @@ type InputValidation = {
   customValidator?: (value: string) => string | null;
 };
 
-interface X3108inpProps extends BaseInputProps {
+interface X3108inpProps extends X3108BaseInpProps {
   name: string;
   value?: string | number;
   type?: "text" | "password" | "email" | "number" | "tel" | "date";
@@ -41,23 +41,24 @@ const X3108inp = React.forwardRef<HTMLInputElement, X3108inpProps>(
       label,
       type = "text",
       value = "",
-      variant = "outline",
+      variant = "filled",
       size = "md",
       validation,
       error: externalError,
       showError = true,
       disabled = false,
+      loading = false,
       autoComplete = "off",
       required = false,
       schemaColor = "primary",
       placeholder,
+      radius = "lg",
       floatingLabel = false,
       onClick,
       onChange,
       onBlur,
       onFocus,
     },
-    ref
   ) => {
     const [isFocused, _setIsFocused] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -111,16 +112,17 @@ const X3108inp = React.forwardRef<HTMLInputElement, X3108inpProps>(
     const hasError = !!error;
 
     const ClassesInputBase = X3108MergeClasses(
-      inputSizeClasses[size],
-      inputVariantClasses[variant],
-      inputBgColorClasses[schemaColor],
       floatingLabel ? inputBaseClasses : inputBaseClassesStandard,
-      hasError ? "border-danger focus:ring-danger/30" : "border-transparent focus:border-primary focus:text-primary focus:ring-primary/30",
-      "flex items-center"
+      inputSizeClasses[size],
+      variantColorClassesInput[variant][schemaColor],
+      hasError ? "border-danger focus:ring-danger/30" : "",
+      "flex items-center",
+      radiusClasses[radius],
+      type === "password" ? "pr-8" : "",
     )
 
     return (
-      <div className={`relative`}>
+      <div className={`relative ${loading ? "cursor-wait animate-pulse" : ""}`}>
         {!floatingLabel && label && (
           <label htmlFor={name} className={`block ml-5 ${labelSizeClasses[size]} ${inputColorClasses[schemaColor]}`}>
             {label}
@@ -140,7 +142,7 @@ const X3108inp = React.forwardRef<HTMLInputElement, X3108inpProps>(
           onBlur={handleBlur}
           onClick={onClick}
           autoComplete={autoComplete}
-          disabled={disabled}
+          disabled={disabled || loading}
           className={ClassesInputBase}
           aria-invalid={hasError}
           aria-describedby={hasError ? `${name}-error` : undefined}
@@ -150,13 +152,13 @@ const X3108inp = React.forwardRef<HTMLInputElement, X3108inpProps>(
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className={`absolute right-3 -translate-y-7.5  text-gray-500 hover:text-gray-700`}
+            className={`absolute right-2 -translate-y-8.5 hover:bg-gray-100/25 rounded-full`}
             aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
           >
             {showPassword ? (
-              <X3108EyeOpen size={size} color={schemaColor} />
+              <X3108EyeOpen size={size} />
             ) : (
-              <X3108EyeClose size={size} color={schemaColor} />
+              <X3108EyeClose size={size} />
             )}
           </button>
         )}
