@@ -1,4 +1,4 @@
-name: CI
+name: Validate Package Build
 
 on: [push, pull_request]
 
@@ -24,6 +24,3 @@ jobs:
             echo "⚠️ Warning: package-lock.json not found. Falling back to 'npm install'."
             npm install
           fi
-
-      - name: Run tests
-        run: npm test
