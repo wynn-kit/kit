@@ -1,4 +1,3 @@
-// Paleta de colores predefinidos para UI
 export const schemeColors = [
   "primary",
   "secondary",
@@ -11,10 +10,8 @@ export const schemeColors = [
 ] as const;
 export type SchemeColor = (typeof schemeColors)[number];
 
-// Variantes de estilo
 export type Variant = "filled" | "outline" | "flushed" | "blur";
 
-// Tamaños estándar
 export type Size = "sm" | "md" | "lg";
 
 export const radiusValues = ["none", "sm", "md", "lg", "xl", "2xl", "full"] as const;

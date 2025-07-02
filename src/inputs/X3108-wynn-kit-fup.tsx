@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
   inputSizeClasses,
-  inputVariantClasses,
   inputBaseClassesStandard,
   inputColorClasses,
-  inputBgColorClasses,
   labelSizeClasses,
   X3108BaseInpProps,
+  variantColorClassesInput,
 } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
@@ -37,6 +36,7 @@ export const X3108fup = ({
   error,
   showError = true,
   disabled = false,
+  loading = false,
   required = false,
   schemaColor = "primary",
   floatingLabel = false,
@@ -121,10 +121,10 @@ export const X3108fup = ({
   const ClassesInput = X3108MergeClasses(
     inputBaseClassesStandard,
     inputSizeClasses[size],
-    inputVariantClasses[variant],
-    inputBgColorClasses[schemaColor],
-    hasError ? "border-danger focus:ring-danger/30" : "border-transparent focus:ring-primary/30",
-    "flex items-center"
+    variantColorClassesInput[variant][schemaColor],
+    hasError ? "border-danger focus:ring-danger/30" : "",
+    loading ? "cursor-wait animate-pulse" : "",
+    disabled ? "cursor-not-allowed" : "",
   );
 
   return (

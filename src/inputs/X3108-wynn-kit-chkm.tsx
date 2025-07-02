@@ -30,6 +30,7 @@ export const X3108chkm = React.forwardRef<HTMLDivElement, X0707CheckboxGroupProp
     showError = true,
     layout = 'horizontal',
     multiSelect = false,
+    loading = false,
   }, ref) => {
     const [selectedValues, setSelectedValues] = useState<string[]>(
       Array.isArray(value) ? value : value ? [value] : []
@@ -88,6 +89,7 @@ export const X3108chkm = React.forwardRef<HTMLDivElement, X0707CheckboxGroupProp
               disabled={disabled}
               size={size}
               schemaColor={schemaColor}
+              loading={loading}
               type={multiSelect ? "checkbox" : "radio"}
             />
           ))}

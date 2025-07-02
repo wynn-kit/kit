@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { X3108BaseInpProps, checkboxSizeClasses, inputBaseClassesStandard, inputBgColorClasses, inputVariantClasses, labelSizeClasses } from "./X3108-wynn-kit-constant";
+import { X3108BaseInpProps, checkboxSizeClasses, inputBaseClassesStandard, labelSizeClasses, variantColorClassesInput } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
 
 interface X0707CheckboxSingleProps extends Omit<X3108BaseInpProps, 'onChange'> {
@@ -19,21 +19,21 @@ export const X3108chk = React.forwardRef<HTMLInputElement, X0707CheckboxSinglePr
           size = "md",
           schemaColor = "primary",
           type = "checkbox",
-          variant = "outline",
+          variant = "filled",
           error = "",
+          loading = false,
      }, ref) => {
 
           const hasError = !!error;
 
           const ClassesInputBase = X3108MergeClasses(
-               "appearance-none rounded-md border py-1.5 px-3 font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2",
+               "flex items-center rounded-lg py-1.5 px-2.5 ",
                inputBaseClassesStandard,
                labelSizeClasses[size],
-               inputVariantClasses[variant],
-               inputBgColorClasses[schemaColor],
-               hasError
-                    ? "border-danger focus:ring-danger/30"
-                    : "border-transparent focus:border-primary focus:text-primary focus:ring-primary/30"
+               variantColorClassesInput[variant][schemaColor],
+               hasError ? "border-danger focus:ring-danger/30" : "",
+               loading ? "cursor-wait animate-pulse" : "",
+               disabled ? "cursor-not-allowed" : "",
           );
 
           const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,8 +50,7 @@ export const X3108chk = React.forwardRef<HTMLInputElement, X0707CheckboxSinglePr
                          checked={checked}
                          onChange={handleChange}
                          disabled={disabled}
-                         className={`mr-2 transform ${checkboxSizeClasses[size]} ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'
-                              }`}
+                         className={checkboxSizeClasses[size]}
                     />
                     <span className={`${labelSizeClasses[size]} select-none`}>{option.label}</span>
                </label>
