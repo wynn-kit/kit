@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import {
   inputBaseClasses,
   inputSizeClasses,
-  inputVariantClasses,
   inputColorClasses,
   labelSizeClassesSelect,
-  inputBgColorClasses,
   inputBaseClassesStandard,
   X3108BaseInpProps,
+  variantColorClassesInput,
 } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
+import { radiusClasses } from "../types/ui";
 
 interface OptionType {
   value: string;
@@ -17,11 +17,11 @@ interface OptionType {
 }
 
 interface SelectInputProps extends X3108BaseInpProps {
-  id: string;
   options: OptionType[];
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   setInfo?: (name: string) => void;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLSelectElement>) => void;
 }
 
 
@@ -35,6 +35,7 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
     options,
     onChange,
     onBlur,
+    loading = false,
     disabled = false,
     touched = false,
     error = "",
@@ -44,6 +45,7 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
     variant = "filled",
     schemaColor = "primary",
     required = false,
+    radius = "lg",
     setInfo,
   } = props;
 
@@ -58,11 +60,14 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
     "w-full appearance-none",
     floatingLabel ? inputBaseClasses : inputBaseClassesStandard,
     inputSizeClasses[size],
-    inputVariantClasses[variant],
-    inputBgColorClasses[schemaColor],
-    hasError ? "border-danger focus:ring-danger/30" : "border-gray-300 focus:border-primary focus:ring-primary/30",
-    floatingLabel ? "pr-10" : ""
+    floatingLabel ? "pr-8" : "",
+    radiusClasses[radius],
+    variantColorClassesInput[variant][schemaColor],
+    hasError ? "border-danger focus:ring-danger/30" : "",
+    loading ? "cursor-wait animate-pulse" : "",
+    disabled ? "cursor-not-allowed" : "",
   );
+
   const classesLabel = X3108MergeClasses(
     "absolute left-3 px-1 transition-all pointer-events-none",
     value || isFocused ? "" : labelSizeClassesSelect[size],
@@ -70,7 +75,7 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
   );
 
   return (
-    <div className="relative mt-1.5">
+    <div className={`relative ${loading ? "cursor-wait animate-pulse" : ""}`}>
       {!floatingLabel && label && (
         <label htmlFor={id} className={`ml-5 ${labelSizeClassesSelect[size]} ${inputColorClasses[schemaColor]}`}>
           {label}
@@ -81,7 +86,6 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
       <select
         id={id}
         name={name}
-        ref={ref}
         value={value}
         onChange={onChange}
         onFocus={() => setIsFocused(true)}
@@ -89,7 +93,7 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
           setIsFocused(false);
           onBlur?.(e);
         }}
-        disabled={disabled}
+        disabled={disabled || loading}
         className={classesSelectBase}
       >
         {floatingLabel && <option value="" disabled hidden />}

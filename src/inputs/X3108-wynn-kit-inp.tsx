@@ -112,13 +112,15 @@ const X3108inp = React.forwardRef<HTMLInputElement, X3108inpProps>(
     const hasError = !!error;
 
     const ClassesInputBase = X3108MergeClasses(
-      floatingLabel ? inputBaseClasses : inputBaseClassesStandard,
-      inputSizeClasses[size],
-      variantColorClassesInput[variant][schemaColor],
-      hasError ? "border-danger focus:ring-danger/30" : "",
       "flex items-center",
       radiusClasses[radius],
+      inputSizeClasses[size],
+      variantColorClassesInput[variant][schemaColor],
+      floatingLabel ? inputBaseClasses : inputBaseClassesStandard,
+      hasError ? "border-danger focus:ring-danger/30" : "",
       type === "password" ? "pr-8" : "",
+      loading ? "cursor-wait animate-pulse" : "",
+      disabled ? "cursor-not-allowed" : "",
     )
 
     return (

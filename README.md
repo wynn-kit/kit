@@ -15,7 +15,7 @@ Clean, minimal and ready for modern web interfaces.
 ## 🚀 Installation
 
 ```bash
-npm install wynn-kit
+npm i @wynnkit/ui
 ```
 
 > Make sure your project has the following installed:
@@ -33,13 +33,11 @@ import {
   SelectUI,
   ToggleUI,
   FileUI,
-  IconUi,
-  IconName,
   CheckBoxUI,
   CheckBoxMultiUI,
   ToolTipUI,
   clsx,
-} from "wynn-kit";
+} from "@wynnkit/ui";
 
 export default function Demo() {
   return (
@@ -72,8 +70,6 @@ export default function Demo() {
 | `CheckBoxUI`      | Modern styled single checkbox                              |
 | `CheckBoxMultiUI` | Multi-selection checkbox                                   |
 | `ToolTipUI`       | Accessible and elegant tooltip                             |
-| `IconUi`          | Component for standard icons                               |
-| `IconName`        | Enum of available icon names                               |
 | `clsx`            | Utility to conditionally concatenate class names           |
 
 ---
