@@ -139,9 +139,10 @@ export const variantColorClassesInput: Record<Variant, Record<SchemeColor, strin
 };
 
 const inputBaseTailwind = `
-  w-full md:min-w-52 pl-4 transition-all duration-300 focus:outline-none focus:ring-2 hover:shadow-md
+  w-full md:min-w-52 pl-4 transition-all duration-300 hover:shadow-md
+  focus:outline-none focus:ring-2 hover:shadow-md
   disabled:opacity-45  disabled:no-underline disabled:shadow-none disabled:translate-none
-  disabled:bg-gray-200 disabled:text-gray-550 disabled:border-transparent 
+  disabled:bg-gray-200 disabled:text-gray-900 disabled:border-transparent 
 `;
 
 export const inputBaseClasses = `mt-8 ${inputBaseTailwind}`;
