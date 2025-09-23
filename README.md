@@ -1,4 +1,4 @@
-# wynn-kit
+# @wynnkit/ui
 
 Essential UI components built with **Tailwind CSS**.
 Clean, minimal and ready for modern web interfaces.

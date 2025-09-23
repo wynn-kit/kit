@@ -27,7 +27,6 @@ interface SelectInputProps extends X3108BaseInpProps {
 
 export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((props, ref) => {
   const {
-    id,
     name,
     label = "",
     placeholder = "Seleccione una opción",
@@ -77,14 +76,14 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
   return (
     <div className={`relative ${loading ? "cursor-wait animate-pulse" : ""}`}>
       {!floatingLabel && label && (
-        <label htmlFor={id} className={`ml-5 ${labelSizeClassesSelect[size]} ${inputColorClasses[schemaColor]}`}>
+        <label htmlFor={name} className={`ml-5 ${labelSizeClassesSelect[size]} ${inputColorClasses[schemaColor]}`}>
           {label}
-          {required && <span className="text-red-400 ml-1">*</span>}
+          {required && <span className="text-danger ml-1">*</span>}
         </label>
       )}
 
       <select
-        id={id}
+        id={name}
         name={name}
         value={value}
         onChange={onChange}
@@ -107,7 +106,7 @@ export const X3108sel = React.forwardRef<HTMLSelectElement, SelectInputProps>((p
 
       {floatingLabel && label && (
         <label
-          htmlFor={id}
+          htmlFor={name}
           className={classesLabel}
         >
           {label}

@@ -3,48 +3,48 @@ import {
   inputSizeClasses,
   inputBaseClassesStandard,
   inputColorClasses,
-  labelSizeClasses,
   X3108BaseInpProps,
   variantColorClassesInput,
+  labelSizeClasses,
 } from "./X3108-wynn-kit-constant";
 import { X3108MergeClasses } from "../copile/X3108-wynn-kit-copile";
+import { radiusClasses } from "../types/ui";
 
 interface X312FileInputProps extends X3108BaseInpProps {
   description?: string[];
   fileWeightMB?: number;
   formats?: string[];
-  value?: File | string | null;
-  onChange: (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | { target: { name: string; value: File | null } }
-  ) => void;
+  value?: File | null;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectItem?: (file: File) => void;
   width?: number;
   height?: number;
 }
 
-export const X3108fup = ({
-  name,
-  label,
-  variant = "outline",
-  size = "md",
-  value = null,
-  description = [],
-  fileWeightMB = 5,
-  formats = ["image/jpeg", "image/png", "application/pdf"],
-  error,
-  showError = true,
-  disabled = false,
-  loading = false,
-  required = false,
-  schemaColor = "primary",
-  floatingLabel = false,
-  width,
-  height,
-  onChange,
-  touched = false,
-}: X312FileInputProps) => {
+export const X3108fup = (
+  {
+    name,
+    label,
+    placeholder = "",
+    variant = "filled",
+    size = "md",
+    value = null,
+    description = [],
+    fileWeightMB = 5,
+    formats = ["image/jpeg", "image/png", "application/pdf"],
+    error,
+    showError = true,
+    disabled = false,
+    loading = false,
+    required = false,
+    schemaColor = "primary",
+    width,
+    height,
+    onChange,
+    touched = false,
+    radius = "lg",
+  }: X312FileInputProps) => {
+
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [internalError, setInternalError] = useState("");
 
@@ -113,7 +113,7 @@ export const X3108fup = ({
     }
 
     setInternalError("");
-    onChange({ ...e, target: { ...e.target, name: name ?? "", value: file } });
+    onChange({ ...e, target: { ...e.target, name: name ?? "", value: file as any } });
   };
 
   const hasError = !!(touched && (error || internalError));
@@ -122,21 +122,27 @@ export const X3108fup = ({
     inputBaseClassesStandard,
     inputSizeClasses[size],
     variantColorClassesInput[variant][schemaColor],
+    radiusClasses[radius],
     hasError ? "border-danger focus:ring-danger/30" : "",
     loading ? "cursor-wait animate-pulse" : "",
     disabled ? "cursor-not-allowed" : "",
   );
 
+  const baseClassesDiv = X3108MergeClasses(
+    "relative",
+    loading ? "cursor-wait animate-pulse" : ""
+  );
+
   return (
-    <div className="relative">
-      {!floatingLabel && label && (
-        <label htmlFor={name} className={`block ml-2 ${labelSizeClasses[size]} ${inputColorClasses[schemaColor]}`}>
+    <div className={baseClassesDiv}>
+      {label && (
+        <label htmlFor={name} className={`block ml-5 ${labelSizeClasses[size]} ${inputColorClasses[schemaColor]}`}>
           {label}
           {required && <span className="text-danger ml-1">*</span>}
         </label>
       )}
 
-      <label htmlFor={name} className={`${ClassesInput} cursor-pointer`}>
+      <label htmlFor={name} className={`cursor-pointer mt-2`}>
         <input
           id={name}
           name={name}
@@ -149,7 +155,10 @@ export const X3108fup = ({
         {previewUrl ? (
           <img src={previewUrl} alt="preview" className="max-w-20 rounded-md" />
         ) : (
-          <span className="text-sm text-gray-500">Seleccionar archivo</span>
+          <div className={ClassesInput}>
+            <span className={`text-sm min-w-58 ${inputColorClasses[schemaColor]}`}>{placeholder || label}</span>
+          </div>
+
         )}
       </label>
 
